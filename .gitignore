@@ -1,0 +1,13 @@
+# Ignore les fichiers et dossiers générés automatiquement
+node_modules/
+dist/
+build/
+
+# Ignore les fichiers de configuration
+.env
+*.log
+
+# Ignore les fichiers de sauvegarde
+*.bak
+*.backup
+*.swp

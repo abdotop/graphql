@@ -1,0 +1,230 @@
+
+
+* {
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+  outline: none;
+}
+
+body {
+  background-color: var(--bg-color);
+  overflow: hidden;
+  font-family: "Montserrat", "Roboto", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+}
+
+.toggle-container {
+  position: absolute;
+  left: 1rem;
+  bottom: 1rem;
+  transform: scale(1.5);
+  cursor: pointer;
+  /* box-shadow: 9px 9px 54px #090b0f, -9px -9px       54px #11171f; */
+  /**************/
+  width: 28px;
+  height: 12px;
+  background-color: #201d1d;
+  border-radius: 17px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-sizing: border-box;
+  padding: 2px;
+  transition: background 0.5s;
+  overflow: hidden;
+  .icon {
+    svg {
+      stroke: #fff;
+      stroke-width: 1.5px;
+      width: 9px;
+    }
+  }
+  .toggle-dark-icon {
+    margin-left: 0px;
+    margin-top: 0px;
+    svg {
+      transition: transform 0.9s;
+      transform: translateX(0px);
+    }
+  }
+  .toggle-light-icon {
+    svg {
+      transform-origin: center;
+      transform: scale(0.7) rotate(0deg);
+      position: relative;
+      right: 30px;
+      transition: transform 0.9s, right 0.5s;
+    }
+  }
+  .toggle-circle {
+    width: 10px;
+    height: 10px;
+    position: absolute;
+    background-color: #fff;
+    border-radius: 50%;
+    left: 5%;
+    transition: left 0.5s;
+  }
+}
+
+#toggle-check {
+  display: none;
+  &:checked ~ .toggle-label .toggle-container {
+    background: var(--primary-color);
+    .toggle-circle {
+      left: 62%;
+    }
+    .toggle-light-icon {
+      svg {
+        transform: scale(1) rotate(180deg);
+        right: 0px;
+      }
+    }
+    .toggle-dark-icon {
+      svg {
+        transform: translateX(30px);
+      }
+    }
+  }
+}
+
+.container {
+  height: 100vh;
+  display: grid;
+  grid-template-columns: 3fr minmax(300px, 1fr);
+  align-items: center;
+  justify-items: center;
+}
+.illustration {
+  grid-column: 1;
+  width: 100%;
+  height: 100%;
+  background-image: url(/illustration.svg);
+  background-size: cover;
+  background-position: center;
+}
+
+.login-form {
+  position: relative;
+  grid-column: 2;
+  padding-right: 1rem;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.description {
+  width: 300px;
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-items: center;
+  top: 5rem;
+  color: var(--dark-color);
+  font-size: 16px; /* Taille du texte */
+  line-height: 1.6; /* Espacement des lignes */
+  /* text-align: justify; Alignement du texte */
+}
+
+.description h1 {
+  font-size: 1rem;
+  position: relative;
+  align-self: flex-start;
+  padding: 1rem;
+  text-decoration: none;
+}
+
+.description h1 span {
+  font-size: 3rem;
+  position: absolute;
+  color: var(--primary-color);
+  display: block;
+  right: -8.5rem;
+}
+
+.login-form input {
+  height: 30px;
+  width: 15rem;
+  padding: 0 5px;
+  border: solid 1px var(--border-color);
+}
+
+.login-form button {
+  position: absolute;
+  background-color: var(--primary-color);
+  color: var(--dark-color);
+  bottom: 20%;
+  width: 5rem;
+  height: 30px;
+  border: none;
+  box-shadow: var(--box-shadow);
+}
+
+.login-form button:hover {
+  cursor: pointer;
+  background-color: var(--border-color);
+}
+
+.login-form input,
+.login-form button {
+  border-radius: var(--border-radius);
+}
+
+.login-form span{
+  color: red;
+  font-size: 12px;
+}
+
+
+.box {
+  display: flex;
+  flex: 1 0 0;
+  position: relative;
+  padding: 2rem;
+  font-size: 0.875rem;
+  box-shadow: var(--box-shadow);
+  transform: scale(1);
+  transition: all 0.25s ease;
+  filter: brightness(100%);
+}
+
+@media screen and (max-width: 890px) {
+  /* Votre CSS ici s'appliquera aux écrans d'au moins 890px de large */
+.illustration {
+  grid-column: 1/3;
+}
+
+.login-form{
+  position: absolute;
+  height: 300px;
+  width: 300px;
+
+  border-radius: var(--border-radius);
+  background-color: var(--bg-color);
+}
+.description{
+  top: 1rem;
+}
+
+.login-form button{
+  bottom: 2rem;
+}
+
+.description h1 {
+  font-size: 1rem;
+  left: 3.5rem;
+}
+
+.description h1 span {
+  font-size: 1.5rem;
+  
+  right: -1.5rem;
+}
+
+}

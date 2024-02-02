@@ -1,0 +1,110 @@
+:root {
+  --primary-color: #e2b75f;
+  --dark-color: #000000;
+  --bg-color: #fff;
+  --border-color: #8c8c8c;
+  /* ---color:#a36357; */
+
+  --border-radius: 5px;
+  --box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.226);
+}
+
+.dark-mode {
+  --bg-color: #201d1d;
+  --dark-color: #fff;
+
+  --box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.3);
+}
+
+.toggle-container {
+  position: absolute;
+  left: 1rem;
+  top: 1rem;
+  transform: scale(1.5);
+  cursor: pointer;
+
+  width: 28px;
+  height: 12px;
+  background-color: #201d1d;
+  border-radius: 17px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-sizing: border-box;
+  padding: 2px;
+  transition: background 0.5s;
+  overflow: hidden;
+  /* .icon {
+      i {
+        fill: #fff;
+        stroke-width: 1.5px;
+        font-size: 9px;
+      }
+    } */
+  /* 
+    i{
+        fill: #fff;
+    } */
+  /* .toggle-dark-icon {
+      margin-left: 0px;
+      margin-top: 0px;
+      i {
+        transition: transform 0.9s;
+        transform: translateX(0px);
+      }
+    }
+    .toggle-light-icon {
+      i {
+        transform-origin: center;
+        transform: scale(0.7) rotate(0deg);
+        position: relative;
+        right: 30px;
+        transition: transform 0.9s, right 0.5s;
+      }
+    }
+    .toggle-circle {
+      width: 10px;
+      height: 10px;
+      position: absolute;
+      background-color: #fff;
+      border-radius: 50%;
+      left: 5%;
+      transition: left 0.5s;
+    } */
+}
+
+.darkmod_i {
+  font-size: 9px;
+  color: #fff;
+}
+
+.toggle-dark-icon .darkmod_i {
+  transition: transform 0.9s;
+  transform: translate(1px , -2px);
+}
+
+.toggle-light-icon .darkmod_i{
+    transition: transform 0.9s;
+    transform: translate(-1px , -2px);
+}
+
+#toggle-check {
+  display: none;
+  &:checked ~ .toggle-label .toggle-container {
+    background: var(--primary-color);
+    .toggle-circle {
+      left: 62%;
+    }
+    .toggle-light-icon {
+      i {
+        transform: scale(1) rotate(180deg);
+        right: 0px;
+      }
+    }
+    .toggle-dark-icon {
+      i {
+        transform: translateX(30px);
+      }
+    }
+  }
+}
